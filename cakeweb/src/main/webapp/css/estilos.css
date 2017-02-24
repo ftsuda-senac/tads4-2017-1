@@ -1,0 +1,98 @@
+@media screen and (max-width: 1200px) {
+    body {
+        background-color: red;
+    }
+    #sobreprincipal > .imagem {
+        border: 3px solid red;
+        width: 30%;
+    }
+    #sobreprincipal > .imagem > img {
+        width: 100%;
+    }
+    #sobreprincipal > .texto {
+        width: 60%;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    body {
+        background-color: green;
+    }
+    #sobreprincipal > .imagem {
+        border: 3px solid red;
+        width: 100%;
+    }
+    #sobreprincipal > .imagem > img {
+        width: 100%;
+    }
+    #sobreprincipal > .texto {
+        border: 3px solid red;
+        width: 100%;
+    }
+}
+
+#logonavprincipal {
+    position: relative;
+}
+
+#logonavprincipal > div {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+}
+
+#logonavprincipal > div > img {
+    width: 100%;
+}
+
+#logonavprincipal > nav {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+}
+
+#logonavprincipal > nav > ul > li {
+    display: inline;
+    list-style: none;
+}
+
+#destaques {
+    position: relative;
+    width: 100%;
+}
+
+#destaques > img {
+    width: 100%;
+}
+
+#sobreprincipal {
+    position: relative;
+    background-color: #ccc;
+    padding: 20px;
+}
+
+#sobreprincipal > div {
+    position: relative;
+    display: inline-block;
+}
+
+#contato {
+    position: relative;
+}
+
+#contato label {
+    width: 150px;
+    text-align: right;
+}
+
+.conteudo {
+    max-width: 800px;
+    margin: auto;
+}
+
+footer {
+    position: relative;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
