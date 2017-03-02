@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Playground web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="./css/estilos.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="./js/funcoes-jquery.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <h1>Título nível 1</h1>
+    <h2>Título nível 2</h2>
+    <h3>Título nível 3</h3>
+    <h4>Título nível 4</h4>
+    <h5>Título nível 5</h5>
+    <h6>Título nível 6</h6>
+
+    <article>
+      <h1>Exemplo de artigo</h1>
+      <section>
+        <h2>Seção 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          ultricies lorem et arcu ultricies, eget mattis ante dapibus. 
+          Suspendisse at tellus feugiat, pharetra ex eget, imperdiet justo. 
+          Vestibulum tristique porta sapien, id lobortis nibh mattis aliquet. 
+          Proin aliquet dictum est, vel accumsan enim rhoncus non. Etiam mi nunc, 
+          pellentesque nec vulputate at, accumsan vitae diam. Sed volutpat 
+          vulputate lorem ac vulputate. Fusce laoreet tincidunt purus a pharetra. 
+          Aenean non risus vulputate, mattis massa id, porttitor ante.</p>
+      </section>
+      <section>
+        <h2>Seção 2</h2>
+        <p>Aenean id hendrerit arcu. Mauris ac condimentum nunc. Aliquam velit 
+          dui, auctor non orci vitae, bibendum faucibus ligula. Integer id mi 
+          fringilla, dictum odio suscipit, feugiat mi. Cras ex tortor, fermentum 
+          id augue ac, faucibus maximus urna. Sed mauris nisl, malesuada in 
+          condimentum ac, vestibulum vitae elit. Sed et leo sed sem hendrerit 
+          condimentum. Nullam sapien lectus, commodo at sapien in, viverra auctor 
+          ligula. Etiam eu sapien ut lacus lacinia posuere id sed nunc. Cras 
+          ornare cursus iaculis. In in tellus leo. Pellentesque habitant morbi 
+          tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      </section>
+      <section>
+        <h2>Seção 3</h2>
+        <p><em>Exemplo da tag &lt;em&gt;</em></p>
+        <p><i>Exemplo da tag &lt;i&gt;</i></p>
+        <p><strong>Exemplo da tag &lt;strong&gt;</strong></p>
+        <p><b>Exemplo da tag &lt;b&gt;</b></p>
+        <p>Texto texto <span>Exemplo da tag &lt;span&gt;</span> Texto texto</p>
+        <p>Texto texto <sup>Exemplo da tag &lt;sup&gt;</sup> Texto texto</p>
+        <p>Texto texto <sub>Exemplo da tag &lt;sub&gt;</sub> Texto texto</p>
+        <p>Texto texto <mark>Exemplo da tag &lt;mark&gt;</mark> Texto texto</p>
+      </section>
+    </article>
+
+    <hr>
+    <section id="testejs">
+      <h1>Testes Javascript</h1>
+      <section id="titulo">
+        <h1 id="nome">Nome: <span>Fulano da Silva</span></h1>
+      </section>
+      <section class="info">
+        <h2>Seção 1</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          ultricies lorem et arcu ultricies, eget mattis ante dapibus.
+        </p>
+      </section>
+      <section class="info">
+        <h2>Seção 2</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+          ultricies lorem et arcu ultricies, eget mattis ante dapibus.
+        </p>
+      </section>
+
+      <div id="area1">
+        <button id="botao1">Adicionar seção</button>
+      </div>
+
+      <div id="area2">
+        <button id="botao2">Adicionar seção</button>
+      </div>
+
+      <div id="area3">
+        <button id="botao3">Chamada AJAX</button>
+      </div>
+
+      <form action="index.html" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="id" value="9999">
+        <div>
+          <label for="txtnome">Nome: </label>
+          <input type="text" name="nome" id="txtnome0" placeholder="Digite o nome" maxlength="50">
+        </div>
+        <div>
+          <label for="txtemail">E-mail: </label>
+          <input type="email" name="email" id="txtemail0" placeholder="Digite o e-mail" maxlength="50">
+        </div>
+        <div>
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Valores iniciais">
+        </div>
+      </form>
+    </section>
+    <hr>
+    <h1>Imagens, Listas e Tabelas</h1>
+    <section>
+      <figure>
+        <img src="img/bolo2.jpg" alt="Mascote" style="height: 200px">
+        <figcaption>Exemplo de imagem</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h1>Lista ordenada</h1>
+      <ol>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ol>
+
+      <h1>Lista não ordenada</h1>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Tabela</h1>
+      <table>
+        <caption>Tabela de contatos</caption>
+        <col>
+        <col>
+        <col>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nascimento</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fulano da Silva</td>
+            <td>11/10/1990</td>
+            <td>(11) 99999-9999</td>
+          </tr>
+          <tr>
+            <td>Ciclana de Souza</td>
+            <td>24/05/1990</td>
+            <td>(11) 98888-8888</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Última atualização: 08/08/2016</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section>
+      <h1>Outras tags</h1>
+      <h2>Lista de definições (&lt;dt&gt;, &lt;dt&gt;, &lt;dd&gt;)</h2>
+      <dl>
+        <dt>Título da definição 1</dt>
+        <dd>Descrição completa sobre a definição 1</dd>
+        <dt>Título da definição 2</dt>
+        <dd>Descrição completa sobre a definição 2</dd>
+      </dl>
+      <h2>Código (&lt;code&gt;)</h2>
+      <code>Exemplo de código</code>
+    </section>
+
+    <div>
+      <h1>Exemplo de formulario</h1>
+      <form action="destino" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="id" value="9999">
+        <div>
+          <label for="txtnome">Nome: </label>
+          <input type="text" name="nome" id="txtnome" placeholder="Digite o nome" maxlength="50" required>
+        </div>
+        <div>
+          <label for="txtemail">E-mail: </label>
+          <input type="email" name="email" id="txtemail" placeholder="Digite o e-mail" maxlength="50" required>
+        </div>
+        <div>
+          <label>Selecione o sexo</label>
+          <input type="radio" name="sexo" id="radsexom" value="m"> <label for="radsexom">Masculino</label>
+          <input type="radio" name="sexo" id="radsexof" value="f"> <label for="radsexof">Feminino</label>
+        </div>
+        <div>
+          <label>Selecione os interesses</label>
+          <input type="checkbox" name="interesses" id="chkinteresse1" value="1"> <label for="chkinteresse1">Viagens</label>
+          <input type="checkbox" name="interesses" id="chkinteresse2" value="2"> <label for="chkinteresse2">Carros</label>
+          <input type="checkbox" name="interesses" id="chkinteresse3" value="3"> <label for="chkinteresse3">Gastronomia</label>
+          <input type="checkbox" name="interesses" id="chkinteresse4" value="4"> <label for="chkinteresse4">Tecnologia</label>
+        </div>
+        <div>
+          <label>Região da cidade</label>
+          <select name="regiao">
+            <optgroup label="Centro">
+              <option value="c">Centro</option>
+            </optgroup>
+            <optgroup label="Demais regiões">
+              <option value="l">Zona Leste</option>
+              <option value="o">Zona Oeste</option>
+              <option value="n">Zona Norte</option>
+              <option value="s">Zona Sul</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+          <label for="txtcomentario">Comentário: </label>
+          <textarea name="comentario" id="txtcomentario" rows="4"></textarea>
+        </div>
+        <div>
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Valores iniciais">
+        </div>
+      </form>
+
+      <form action="upload" enctype="multipart/form-data">
+        <input type="file" name="arquivo">
+        <input type="submit" value="Enviar arquivo">
+      </form>
+    </div>
+  </body>
+
+</html>

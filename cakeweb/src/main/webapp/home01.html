@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cake Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="./css/estilos.css" type="text/css">
+  </head>
+  <body>
+    <!-- CABEÇALHO + LOGO -->
+    <header>
+      <a href="#"><img src="./img/logo.png" alt="Logotipo da Cake Web" title="Cake Web"></a>
+    </header>
+    <!-- LINKS DE NAVEGAÇÃO INTERNA -->
+    <nav>
+      <ul>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <!-- CARROSSEL DE DESTAQUES -->
+    <section id="carousel">
+      <div>
+        <img src="./img/bolo2.jpg" alt="Imagem do bolo de chocolate" title="Bolo de chocolate">
+      </div>
+    </section>
+    <article class="secao" id="sobre">
+      <h1>Sobre a Cake Web</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut facilisis orci. Nullam hendrerit leo sit amet mi aliquet ultricies. Sed nec elit odio. Nullam volutpat eros vitae leo euismod.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/NwAMGyxG1KQ" frameborder="0" allowfullscreen></iframe>
+
+    </article>
+    <hr>
+    <section class="secao">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut facilisis orci. Nullam hendrerit leo sit amet mi aliquet ultricies. Sed nec elit odio. Nullam volutpat eros vitae leo euismod.</p>
+    </section>
+    <article class="secao" id="produtos">
+      <h1>Nossos produtos</h1>
+      <ul>
+	<li>Produto 1</li>
+	<li>Produto 2</li>
+	<li>Produto 3</li>
+      </ul>
+    </article>
+    <hr>
+    <section class="secao" id="contato">
+      <h1>Entre em contato</h1>
+      <form action="http://www.uol.com.br/" method="post" enctype="application/x-www-form-urlencoded">
+        <div><label>Empresa</label>
+          <input type="text" placeholder="Digite o nome da empresa" name="q" id="txtempresa"></div>
+        <div><label>Responsável</label>
+          <input type="text" placeholder="Digite o nome do responsável" name="responsavel"></div>
+        <div><label>E-mail</label>
+          <input type="email" placeholder="Digite o e-mail do responsável" name="email" id="txtemail"></div>
+        <div><label>Motivo</label>
+          <select name="motivo">
+            <option value="1">Motivo 1</option>
+            <option value="2">Motivo 2</option>
+          </select>
+        </div>
+        <div><label>Comentário</label>
+          <textarea name="comentario"></textarea>
+        </div>
+        <div class="botao"><input type="submit" value="Enviar"></div>
+      </form>
+    </section>
+    <footer>
+      <p>Copyright &copy; 2016 - Senac TADS</p>
+    </footer>
+  </body>
+</html>

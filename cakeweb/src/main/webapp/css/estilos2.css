@@ -1,0 +1,144 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+/* BOOTSTRAP WIDTH BREAKPOINTS */
+/* Cores em http://flatuicolors.com/ */
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  html {
+    background-color: #1abc9c;
+  }
+}
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  html {
+    background-color: #9b59b6;
+  }
+}
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  html {
+    background-color: #f1c40f;
+  }
+}
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  html {
+    background-color: #e67e22;
+  }
+}
+
+
+header {
+  text-align: center;
+  padding: 10px;
+  background-color: #843c0c;
+}
+header img {
+  height: 70px;
+}
+nav {
+  display: block;
+  text-align: center;
+  background-color: #999;
+  padding: 10px;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 10px 20px;
+  border-right: 1px solid #fff;
+}
+
+nav li:last-child {
+  border-right: none;
+}
+nav li > a {
+  padding: 10px 20px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+nav li:hover > a {
+  transition: all 0.3s linear;
+  background-color: #777;
+}
+
+#carousel {
+  display: block;
+  height: 500px;
+  overflow: hidden;
+}
+
+#carousel img {
+  width: 100%;
+}
+
+#sobre {
+  font-family: 'Lobster', sans-serif;
+  text-align: center;
+}
+#sobre h1 {
+    font-size: 2em;
+}
+#sobre p {
+    font-size: 1.2em;
+}
+.secao {
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#contato h1 {
+  text-align: center;
+}
+#contato form > div {
+  padding: 3px;
+}
+#contato form > div > label {
+  display: inline-block;
+  width: 25%;
+  text-align: right;
+}
+#contato form > div > input,
+#contato form > div > select,
+#contato form > div > textarea {
+  display: inline-block;
+  width: 70%;
+}
+
+#contato form > div.botao {
+  text-align: center;
+}
+
+#contato form > div.botao > input[type='submit'] {
+  width: 120px;
+}
+
+footer {
+  text-align: center;
+  padding: 5px;
+  background-color: #444;
+  color: #fff;
+}
+
+/* Estilos usados para testes javascript */
+#titulo {
+  /*transition: all 0.5s ease;*/
+}
+.info {
+  transition: all 0.8s ease;
+  border: 2px solid #333;
+  border-radius: 5px;
+  margin: 20px 100px;
+  padding: 10px 30px;
+}
+
+.info-selecionado {
+  background-color: goldenrod;
+}
