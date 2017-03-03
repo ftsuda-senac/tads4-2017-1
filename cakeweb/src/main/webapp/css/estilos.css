@@ -69,6 +69,10 @@
     position: relative;
     background-color: #ccc;
     padding: 20px;
+    transition: all 0.3s ease-in-out;
+}
+#sobreprincipal.ativo {
+  background-color: #1dd2af;
 }
 
 #sobreprincipal > div {

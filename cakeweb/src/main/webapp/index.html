@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/estilos.css" />
     <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/funcoes.js"></script>
   </head>
   <body>
     <!--  Ver https://github.com/h5bp/html5-boilerplate para outras configurações -->
@@ -35,7 +36,7 @@
     </section>
 
     <div class="conteudo">
-    <article id="sobreprincipal">
+      <article id="sobreprincipal">
       <div class="imagem">
 	<img src="./img/bolo.jpg" alt="Cake Web" title="Cake Web" />
       </div>
@@ -44,16 +45,23 @@
 	<h3>Os melhores bolos e doces somente aqui</h3>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in ultricies massa. Integer at est odio. Integer metus eros, auctor nec sem quis, gravida finibus neque. Quisque placerat erat vel consequat faucibus.</p>
       </div>
-
     </article>
+      
+      <button id="btnadicionar1">Adicionar Seção</button>
+      <div id="secao"></div>
+      
+      <hr>
+      
+      <button id="btnadicionar2">Adicionar Seção AJAX</button>
+      <div id="secaoAjax"></div>
 
     <section id="contato">
       <h3>Entre em contato</h3>
-      <form action="#" method="post">
+      <form id="frmcontato" action="playground.html" method="post">
 	<div><label>Empresa</label>
-	  <input type="text" placeholder="Digite o nome da empresa" name="q" id="txtempresa"></div>
+	  <input type="text" placeholder="Digite o nome da empresa" name="empresa" id="txtempresa"></div>
 	<div><label>Responsável</label>
-	  <input type="text" placeholder="Digite o nome do responsável" name="responsavel"></div>
+	  <input type="text" placeholder="Digite o nome do responsável" name="responsavel" id="txtresponsavel"></div>
 	<div><label>E-mail</label>
 	  <input type="email" placeholder="Digite o e-mail do responsável" name="email" id="txtemail"></div>
 	<div><label>Motivo</label>

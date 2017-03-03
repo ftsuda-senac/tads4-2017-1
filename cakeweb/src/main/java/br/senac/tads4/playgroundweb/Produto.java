@@ -34,13 +34,9 @@ import java.util.List;
 public class Produto implements Serializable {
 
   private long id = 0;
-
   private String nome;
-
   private String descricao;
-
   private BigDecimal preco;
-
   private List<Categoria> categorias;
 
   public Produto() {

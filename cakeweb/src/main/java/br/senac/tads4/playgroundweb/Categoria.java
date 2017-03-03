@@ -32,7 +32,6 @@ import java.io.Serializable;
 public class Categoria implements Serializable {
 
   private int id = 0;
-
   private String nome;
 
   public Categoria() {
