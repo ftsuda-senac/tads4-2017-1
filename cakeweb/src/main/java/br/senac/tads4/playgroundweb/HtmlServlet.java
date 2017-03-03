@@ -25,6 +25,9 @@ package br.senac.tads4.playgroundweb;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,21 +53,41 @@ public class HtmlServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	  throws ServletException, IOException {
+
+    Categoria c1 = new Categoria(1, "Bolo");
+    Categoria c2 = new Categoria(2, "Chocolate");
+    List<Categoria> categorias1 = Arrays.asList(c1, c2);
+
+    Produto p1 = new Produto(1L, "Bolo de chocolate", "O melhor bolo do mundo", new BigDecimal("50.0"));
+    p1.setCategorias(categorias1);
+
+    StringBuilder strBuilder = new StringBuilder();
+    strBuilder.append("<!DOCTYPE html>");
+    strBuilder.append("<html>");
+    strBuilder.append("<head>");
+    strBuilder.append("<title>Servlet HtmlServlet</title>");
+    strBuilder.append("</head>");
+    strBuilder.append("<body>");
+    strBuilder.append("<section>");
+    strBuilder.append("<h1>Dados do Produto</h1>");
+    strBuilder.append("<ul>");
+    strBuilder.append("<li>").append(p1.getId()).append("</li>");
+    strBuilder.append("<li>").append(p1.getNome()).append("</li>");
+    strBuilder.append("<li>").append(p1.getDescricao()).append("</li>");
+    strBuilder.append("<li><ul>");
+    for (int i = 0; i < p1.getCategorias().size(); i++) {
+      strBuilder.append("<li>").append(p1.getCategorias().get(i).getNome()).append("</li>");
+    }
+    strBuilder.append("</ul></li>");
+    strBuilder.append("</ul>");
+    strBuilder.append("</section>");
+    strBuilder.append("</body>");
+    strBuilder.append("</html>");
+
     response.setContentType("text/html;charset=UTF-8");
     try (PrintWriter out = response.getWriter()) {
-      /* TODO output your page here. You may use following sample code. */
-      out.println("<!DOCTYPE html>");
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<title>Servlet HtmlServlet</title>");      
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<section><h1>Dados do Produto</h1></section>");
-      out.println("</body>");
-      out.println("</html>");
+      out.print(strBuilder.toString());
+    }
   }
-  }
-
-
 
 }
