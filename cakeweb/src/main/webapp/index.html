@@ -11,75 +11,247 @@
     <link rel="stylesheet" href="./css/normalize.min.css" />
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="./css/estilos.css" />
     <script src="./js/jquery-3.1.1.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/funcoes-jquery.js"></script>
+    <script>
+      $(function() {
+	$('#modalWelcome').modal("show");
+	
+      })
+    </script>
   </head>
   <body>
     <!--  Ver https://github.com/h5bp/html5-boilerplate para outras configurações -->
-    <header id="logonavprincipal">
-      <div>
-	<img src="./img/logo.png" alt="Logotipo da Cake Web" title="Cake Web" /> 
-      </div>
-      <nav>
-	<ul>
-	  <li>Sobre</li>
-	  <li>Principal</li>
-	  <li>Produtos</li>
-	</ul>
-      </nav>
-    </header>
 
-    <section id="destaques">
-       <img src="./img/bolo1.jpg" />
-    </section>
-
-    <div class="conteudo">
-      <article id="sobreprincipal">
-      <div class="imagem">
-	<img src="./img/bolo.jpg" alt="Cake Web" title="Cake Web" />
-      </div>
-      <div class="texto">
-	<h2>Cake Web</h2>
-	<h3>Os melhores bolos e doces somente aqui</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in ultricies massa. Integer at est odio. Integer metus eros, auctor nec sem quis, gravida finibus neque. Quisque placerat erat vel consequat faucibus.</p>
-      </div>
-    </article>
-      
-      <button id="btnadicionar1">Adicionar Seção</button>
-      <div id="secao"></div>
-      
-      <hr>
-      
-      <button id="btnadicionar2">Adicionar Seção AJAX</button>
-      <div id="secaoAjax"></div>
-
-    <section id="contato">
-      <h3>Entre em contato</h3>
-      <form id="frmcontato" action="playground.html" method="post">
-	<div><label>Empresa</label>
-	  <input type="text" placeholder="Digite o nome da empresa" name="empresa" id="txtempresa"></div>
-	<div><label>Responsável</label>
-	  <input type="text" placeholder="Digite o nome do responsável" name="responsavel" id="txtresponsavel"></div>
-	<div><label>E-mail</label>
-	  <input type="email" placeholder="Digite o e-mail do responsável" name="email" id="txtemail"></div>
-	<div><label>Motivo</label>
-	  <select name="motivo">
-	    <option value="1">Motivo 1</option>
-	    <option value="2">Motivo 2</option>
-	  </select>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+	<div class="navbar-header">
+	  <a class="navbar-brand" href="#">
+	    <img src="./img/logo.png" alt="Logotipo da Cake Web" title="Cake Web" style="height: 30px" /> 
+	  </a>
 	</div>
-	<div><label>Comentário</label>
-	  <textarea name="comentario"></textarea>
+	<div class="collapse navbar-collapse">
+	  <ul class="nav navbar-nav">
+	    <li><a href="#">Sobre</a></li>
+	    <li><a href="#">Principal</a></li>
+	    <li><a href="#">Produtos</a></li>
+	  </ul>
 	</div>
-	<div class="botao"><input type="submit" value="Enviar"></div>
-      </form>
+      </div>
+    </nav>
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active text-center">
+      <img src="./img/bolo1.jpg" style="height: 400px" />
+    </div>
+    <div class="item text-center">
+      <img src="./img/bolo2.jpg" style="height: 400px" />
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+    
+    <!--
+    <section id="destaques" class="jumbotron">
+      <img src="./img/bolo1.jpg" />
     </section>
+    -->
+
+    <div class="container">
+      <div class="row">
+	<article class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1" id="sobreprincipal">
+	  <div class="panel">
+	    <div class="imagem">
+	      <img src="./img/bolo.jpg" alt="Cake Web" title="Cake Web" />
+	    </div>
+	    <div class="texto">
+	      <h2>Cake Web</h2>
+	      <h3>Os melhores bolos e doces somente aqui <span class="glyphicon glyphicon-heart"></span></h3>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in ultricies massa. Integer at est odio. Integer metus eros, auctor nec sem quis, gravida finibus neque. Quisque placerat erat vel consequat faucibus.</p>
+	    </div>
+	  </div>
+	</article>
+      </div>
+      <div class="row">
+	<div class="col-md-10 col-md-offset-1 col-sm-12">
+
+	  <button class="btn btn-primary" id="btnadicionar1">Adicionar Seção</button>
+	  <div id="secao"></div>
+
+	  <hr>
+
+	  <button class="btn btn-danger" id="btnadicionar2">Adicionar Seção AJAX</button>
+	  <div id="secaoAjax"></div>
+	  
+	  <button type="button" class="btn btn-primary" 
+		  data-toggle="modal" data-target="#modalWelcome">
+	    Abrir modal
+	  </button>
+	  
+	  <div>
+	    <h2>Exemplo de Accordion</h2>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse"
+	   data-parent="#accordion" href="#collapseOne"
+	   aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button"
+	   data-toggle="collapse" data-parent="#accordion" 
+	   href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+	    
+	    
+	  </div>
+	  <div>
+	    <h2>Exemplo de tab</h2>
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">Conteúdo do #home</div>
+    <div role="tabpanel" class="tab-pane" id="profile">Conteúdo do #profile</div>
+    <div role="tabpanel" class="tab-pane" id="messages">Conteúdo do #messages</div>
+    <div role="tabpanel" class="tab-pane" id="settings">Conteúdo do #settings</div>
+  </div>
+
+</div>
+	    
+	  </div>
+
+	  <section id="contato">
+	    <h3>Entre em contato</h3>
+	    <form class="form-horizontal" id="frmcontato" action="playground.html" method="post">
+	      <div class="form-group">
+		<label class="col-xs-3 control-label">Empresa</label>
+		<div class="col-xs-9">
+		  <input type="text" class="form-control" placeholder="Digite o nome da empresa" name="empresa" id="txtempresa">
+		</div>
+	      </div>
+	      <div class="form-group">
+		<label class="col-xs-3 control-label">Responsável</label>
+		<div class="col-xs-9">
+		  <input type="text" class="form-control" placeholder="Digite o nome do responsável" name="responsavel" id="txtresponsavel"></div>
+	      </div>
+	      <div class="form-group">
+		<label class="col-xs-3 control-label">E-mail</label>
+		<div class="col-xs-9">
+		  <input type="email" class="form-control" placeholder="Digite o e-mail do responsável" name="email" id="txtemail"></div>
+	      </div>
+	      <div class="form-group">
+		<label class="col-xs-3 control-label">Motivo</label>
+		<div class="col-xs-9">
+		  <select class="form-control" name="motivo">
+		    <option value="1">Motivo 1</option>
+		    <option value="2">Motivo 2</option>
+		  </select>
+		</div>
+	      </div>
+	      <div class="form-group">
+		<label class="col-xs-3 control-label">Comentário</label>
+		<div class="col-xs-9">
+		  <textarea class="form-control" name="comentario"></textarea>
+		</div>
+	      </div>
+	      <div class="botao text-center"><input type="submit" class="btn btn-success" value="Enviar"></div>
+	    </form>
+	  </section>
+	</div>
+      </div>
     </div>
 
     <footer>
       <p>Copyright &copy; 2017 - Senac TADS</p>
     </footer>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="modal fade" id="modalWelcome" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    <h4 class="modal-title">Bem vindo</h4>
+	  </div>
+	  <div class="modal-body">
+	    <p>Bem vindo ao Cake Web</p>
+	  </div>
+	  <div class="modal-footer">
+	    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+	  </div>
+	</div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </body>
 </html>
