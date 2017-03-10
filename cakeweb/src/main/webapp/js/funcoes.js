@@ -9,6 +9,7 @@ var documentReady = function(fn) {
 
 documentReady(function() {
   
+  // Exemplo 1 - animação no mouseover/mouseout
   var areaPrincipal = document.getElementById("sobreprincipal");
   areaPrincipal.addEventListener("mouseover", function() {
     //this.style.backgroundColor = "#f00";
@@ -19,6 +20,7 @@ documentReady(function() {
     this.classList.remove("ativo");
   });
   
+  // Exemplo 2 - validação de formulário
   var formulario = document.getElementById("frmcontato");
   formulario.addEventListener("submit", function(ev) {
     var empresa = document.getElementById("txtempresa");
@@ -32,6 +34,7 @@ documentReady(function() {
     ev.preventDefault();
   });
   
+  // Exemplo 3 - Criação de elementos HTML
   var botao1 = document.getElementById("btnadicionar1");
   botao1.addEventListener("click", function(ev) {
     var novaSecao = document.getElementById("secao");
@@ -39,6 +42,7 @@ documentReady(function() {
 	    "<p>Lorem ipsum</p></section>";
   });
   
+  // Exemplo 4 - Chamada AJAX
   var botao2 = document.getElementById("btnadicionar2");
   botao2.addEventListener("click", function(ev) {
     var request = new XMLHttpRequest();

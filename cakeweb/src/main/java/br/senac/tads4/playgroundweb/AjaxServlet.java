@@ -57,7 +57,7 @@ public class AjaxServlet extends HttpServlet {
     Categoria c2 = new Categoria(2, "Chocolate");
     List<Categoria> categorias1 = Arrays.asList(c1, c2);
 
-    Produto p1 = new Produto(1L, "Bolo de chocolate", "O melhor bolo do mundo", new BigDecimal("50.0"));
+    Produto p1 = new Produto(1L, "Bolo de chocolate", "O melhor bolo do mundo no dia 09/03", new BigDecimal("50.0"));
     p1.setCategorias(categorias1);
 
 //    Categoria c3 = new Categoria(3, "Torta");
