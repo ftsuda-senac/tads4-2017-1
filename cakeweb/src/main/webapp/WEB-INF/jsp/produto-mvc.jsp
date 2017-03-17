@@ -14,6 +14,7 @@
   </head>
   <body>
     <h1>Cake web MVC</h1>
+    <p>Acessos: <c:out value="${sessionScope.contador}" /></p>
     <ul>
       <c:forEach items="${listaProd}" var="prod">
 	<li>
