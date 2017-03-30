@@ -20,11 +20,7 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class ProdutoBean {
 
-  private String nome;
-
   private String email;
-
-  private String descricao;
 
   private String[] categorias;
 
@@ -32,9 +28,8 @@ public class ProdutoBean {
   
   private Integer nota;
 
-  private BigDecimal preco;
 
-  private Produto produto;
+  private Produto produto = new Produto();
 
   /**
    * Creates a new instance of ProdutoBean
@@ -54,7 +49,7 @@ public class ProdutoBean {
   }
 
   public String salvar() {
-    this.produto = new Produto(nome, descricao, preco);
+    //this.produto = new Produto(nome, descricao, preco);
     return "sucesso";
   }
 
@@ -84,28 +79,12 @@ public class ProdutoBean {
     return Arrays.asList(1, 2, 3, 4, 5);
   }
 
-  public String getNome() {
-    return nome;
-  }
-
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
-
   public String getEmail() {
     return email;
   }
 
   public void setEmail(String email) {
     this.email = email;
-  }
-
-  public String getDescricao() {
-    return descricao;
-  }
-
-  public void setDescricao(String descricao) {
-    this.descricao = descricao;
   }
 
   public String[] getCategorias() {
@@ -132,12 +111,5 @@ public class ProdutoBean {
     this.nota = nota;
   }
 
-  public BigDecimal getPreco() {
-    return preco;
-  }
-
-  public void setPreco(BigDecimal preco) {
-    this.preco = preco;
-  }
 
 }

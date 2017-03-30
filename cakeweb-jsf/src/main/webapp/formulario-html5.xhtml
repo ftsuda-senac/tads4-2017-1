@@ -3,14 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-  <h:head>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://java.sun.com/jsf">
+  <head jsf:id="head">
     <title>Cake Web JSF</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </h:head>
-  <h:body>
+  </head>
+  <body jsf:id="body">
     <div class="container">
       <div class="row">
 	<div class="col-xs-12">
@@ -19,10 +20,12 @@
       </div>
       <div class="row">
 	<div class="col-xs-12">
-	  <h:form prependId="false">
+	  <form jsf:id="form" jsf:prependId="false">
 	    <div>
-	      <h:outputLabel for="txtNome" value="Nome" />
-	      <h:inputText id="txtNome" value="#{produtoBean.produto.nome}" pt:placeholder="Preencha o nome" />
+	      <label for="txtNome">Nome</label>
+	      <input type="text" jsf:id="txtNome" id="txtNome" 
+		     jsf:value="#{produtoBean.produto.nome}" 
+		     placeholder="Preencha o nome" />
 	    </div>
 	    <div>
 	      <h:outputLabel for="txtDescricao" value="Descricao" />
@@ -54,10 +57,10 @@
 	    <div>
 	      <h:commandButton value="Enviar" action="#{produtoBean.salvar()}" />
 	    </div>
-	  </h:form>
+	  </form>
 	</div>
       </div>
     </div>
-  </h:body>
+  </body>
 </html>
 
