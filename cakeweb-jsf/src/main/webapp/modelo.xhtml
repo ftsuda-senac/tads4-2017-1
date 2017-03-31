@@ -19,6 +19,24 @@
 	</div>
       </div>
       <div class="row">
+	<div class="col-xs-12">
+	  <ul>
+	    <ui:repeat value="#{categoriaBean.categorias}" var="cat">
+	      <li><a href="#"><h:outputText value="#{cat}" /></a></li>
+	    </ui:repeat>
+	  </ul>
+	</div>
+      </div>
+      <ui:fragment rendered="#{flash.mensagem != null}">
+	<div class="row">
+	  <div class="col-xs-12">
+	    <div class="alert alert-success" role="alert">
+	      <h:outputText value="#{flash.mensagem}" />
+	    </div>
+	  </div>
+	</div>
+      </ui:fragment>
+      <div class="row">
 	<ui:insert name="content">Conteúdo</ui:insert>
       </div>
     </div>

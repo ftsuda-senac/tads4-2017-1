@@ -39,8 +39,8 @@ public class ProdutoBean {
 
   public List<Produto> getProdutos() {
     List<Produto> produtos = new ArrayList<>();
-    for (int i = 1; i < 13; i++) {
-      produtos.add(new Produto("Produto " + i,
+    for (long i = 1L; i < 13L; i++) {
+      produtos.add(new Produto(i, "Produto " + i,
 	      "Descrição do produto " + i,
 	      new BigDecimal(i * 10)));
     }

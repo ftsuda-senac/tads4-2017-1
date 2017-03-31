@@ -8,6 +8,8 @@ package br.senac.tads4.cakeweb;
 import java.math.BigDecimal;
 
 public class Produto {
+  
+  private long id;
 
   private String nome;
 
@@ -18,10 +20,19 @@ public class Produto {
   public Produto() {
   }
 
-  public Produto(String nome, String descricao, BigDecimal preco) {
+  public Produto(long id, String nome, String descricao, BigDecimal preco) {
+    this.id = id;
     this.nome = nome;
     this.descricao = descricao;
     this.preco = preco;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getNome() {

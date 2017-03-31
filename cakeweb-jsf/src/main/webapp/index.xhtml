@@ -23,7 +23,11 @@
 		<f:convertNumber type="currency" locale="pt-BR" />
 	      </h:outputText>
 	    </h3>
-	    <h:outputLink value="formulario.xhtml" styleClass="btn btn-success btn-block">Comprar</h:outputLink>
+	    <h:form prependId="false">
+	      <h:commandButton action="#{carrinhoBean.adicionar(prod.id)}" 
+			       value="Adicionar ao carrinho"
+			       styleClass="btn btn-success btn-block" />
+	    </h:form>
 	  </div>
 	</ui:repeat>
 

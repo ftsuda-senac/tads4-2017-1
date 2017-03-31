@@ -7,8 +7,20 @@
     <title>Facelet Title</title>
   </h:head>
   <h:body>
-    <ui:composition>
-      <h1 class="text-center">Cake Web (<h:outputText value="#{carrinhoBean.quantidade}" />)</h1>
+    <ui:composition template="modelo.xhtml">
+      <ui:define name="content">
+	<table>
+
+	  <ui:repeat value="#{carrinhoBean.idsProdutos}" var="i">
+	    <tr>
+	      <td>
+		<h:outputText value="#{i}" />
+	      </td>
+	    </tr>
+	  </ui:repeat>
+
+	</table>
+      </ui:define>
     </ui:composition>
   </h:body>
 </html>
