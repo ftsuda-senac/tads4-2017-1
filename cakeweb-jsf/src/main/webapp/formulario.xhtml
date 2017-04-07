@@ -19,18 +19,22 @@
       </div>
       <div class="row">
 	<div class="col-xs-12">
-	  <h:form prependId="false">
+	  <h:form prependId="false" enctype="multipart/form-data">
 	    <div>
 	      <h:outputLabel for="txtNome" value="Nome" />
 	      <h:inputText id="txtNome" value="#{produtoBean.produto.nome}" pt:placeholder="Preencha o nome" />
 	    </div>
 	    <div>
-	      <h:outputLabel for="txtDescricao" value="Descricao" />
+	      <h:outputLabel for="txtDescricao" value="Descrição" />
 	      <h:inputTextarea id="txtDescricao" value="#{produtoBean.produto.descricao}" />
 	    </div>
 	    <div>
-	      <h:outputLabel for="txtPreco" value="Preco" />
+	      <h:outputLabel for="txtPreco" value="Preço" />
 	      <h:inputText id="txtPreco" value="#{produtoBean.produto.preco}" />
+	    </div>
+	    <div>
+	      <h:outputLabel for="txtImagem" value="Imagem" />
+	      <h:inputFile id="txtImagem" value="#{produtoBean.imagem}" />
 	    </div>
 	    <div>
 	      <h:outputLabel for="txtEmail" value="E-mail" />
