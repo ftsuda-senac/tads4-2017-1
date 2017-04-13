@@ -6,6 +6,8 @@
 package br.senac.tads4.cakeweb;
 
 import br.senac.tads4.cakeweb.common.entidade.Produto;
+import br.senac.tads4.cakeweb.common.service.ProdutoService;
+import br.senac.tads4.cakeweb.common.service.fakeimpl.ProdutoServiceFakeImpl;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,6 +42,8 @@ public class ProdutoBean {
   private Produto produto = new Produto();
 
   private Part imagem;
+  
+
 
   /**
    * Creates a new instance of ProdutoBean
@@ -48,14 +52,8 @@ public class ProdutoBean {
   }
 
   public List<Produto> getProdutos() {
-    List<Produto> produtos = new ArrayList<>();
-    for (long i = 1L; i < 13L; i++) {
-      produtos.add(new Produto(i, "Produto " + i,
-	      "Descrição do produto " + i,
-	      new BigDecimal(i * 10)));
-    }
-    return produtos;
-
+    ProdutoService service = new ProdutoServiceFakeImpl();
+    return service.listar(0, 100);
   }
 
   public String salvar() {
