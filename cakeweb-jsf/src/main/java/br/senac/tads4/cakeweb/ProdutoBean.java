@@ -5,6 +5,7 @@
  */
 package br.senac.tads4.cakeweb;
 
+import br.senac.tads4.cakeweb.common.entidade.Produto;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
