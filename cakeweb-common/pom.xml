@@ -28,5 +28,10 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derbyclient</artifactId>
+      <version>10.13.1.1</version>
+    </dependency>
   </dependencies>
 </project>

@@ -26,9 +26,12 @@ package br.senac.tads4.cakeweb.common.entidade;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -50,6 +53,8 @@ public class ImagemProduto implements Serializable {
   @Column(name = "DS_IMAGEM", length = 100)
   private String legenda;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "ID_PRODUTO", nullable = false)
   private Produto produto;
 
   public ImagemProduto() {

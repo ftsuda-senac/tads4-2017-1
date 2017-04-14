@@ -28,11 +28,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -57,7 +63,7 @@ public class Produto implements Serializable {
   @Column(name = "DS_PRODUTO", length = 1000, nullable = false)
   private String descricao;
 
-  @Column(name = "VL_PRODUTO", precision = 12, 
+  @Column(name = "VL_PRODUTO", precision = 12,
 	  scale = 2, nullable = false)
   private BigDecimal preco;
 
@@ -65,10 +71,20 @@ public class Produto implements Serializable {
   @Temporal(TemporalType.TIMESTAMP)
   private Date dtCadastro;
 
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "TB_PRODUTO_CATEGORIA",
+	  joinColumns = {
+	    @JoinColumn(name = "ID_PRODUTO")
+	  },
+	  inverseJoinColumns = {
+	    @JoinColumn(name = "ID_CATEGORIA")
+	  })
   private List<Categoria> categorias;
 
+  @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY,
+	  cascade = {CascadeType.REMOVE})
   private List<ImagemProduto> imagens;
-  
+
   @Transient
   private String observacoes;
 
