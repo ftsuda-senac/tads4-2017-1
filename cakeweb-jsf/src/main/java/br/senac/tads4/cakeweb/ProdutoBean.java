@@ -8,6 +8,7 @@ package br.senac.tads4.cakeweb;
 import br.senac.tads4.cakeweb.common.entidade.Produto;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
 import br.senac.tads4.cakeweb.common.service.fakeimpl.ProdutoServiceFakeImpl;
+import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,11 +40,13 @@ public class ProdutoBean {
   private String nivel;
 
   private Integer nota;
+  
+  private Date dataTeste = new Date();
 
   private Produto produto = new Produto();
 
   private Part imagem;
-  
+
 
 
   /**
@@ -52,7 +56,7 @@ public class ProdutoBean {
   }
 
   public List<Produto> getProdutos() {
-    ProdutoService service = new ProdutoServiceFakeImpl();
+    ProdutoService service = new ProdutoServiceJPAImpl();
     return service.listar(0, 100);
   }
 
@@ -151,6 +155,14 @@ public class ProdutoBean {
 
   public void setNota(Integer nota) {
     this.nota = nota;
+  }
+
+  public Date getDataTeste() {
+    return dataTeste;
+  }
+
+  public void setDataTeste(Date dataTeste) {
+    this.dataTeste = dataTeste;
   }
 
   public Part getImagem() {
