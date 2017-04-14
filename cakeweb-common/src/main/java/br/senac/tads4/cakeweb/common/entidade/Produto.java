@@ -28,27 +28,48 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  *
  * @author fernando.tsuda
  */
+@Entity
+@Table(name = "TB_PRODUTO")
 public class Produto implements Serializable {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "ID_PRODUTO")
   private Long id;
 
+  @Column(name = "NM_PRODUTO", length = 100, nullable = false)
   private String nome;
 
+  @Column(name = "DS_PRODUTO", length = 1000, nullable = false)
   private String descricao;
 
+  @Column(name = "VL_PRODUTO", precision = 12, 
+	  scale = 2, nullable = false)
   private BigDecimal preco;
 
+  @Column(name = "DT_CADASTRO", nullable = false)
+  @Temporal(TemporalType.TIMESTAMP)
   private Date dtCadastro;
 
   private List<Categoria> categorias;
 
   private List<ImagemProduto> imagens;
   
+  @Transient
   private String observacoes;
 
   //private List<ItemCompra> itensCompra;

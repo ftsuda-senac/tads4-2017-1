@@ -24,17 +24,30 @@
 package br.senac.tads4.cakeweb.common.entidade;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author fernando.tsuda
  */
+@Entity
+@Table(name = "TB_IMAGEM")
 public class ImagemProduto implements Serializable {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "ID_IMAGEM")
   private Long id;
 
+  @Column(name = "NM_IMAGEM", length = 100, nullable = false)
   private String nomeArquivo;
 
+  @Column(name = "DS_IMAGEM", length = 100)
   private String legenda;
 
   private Produto produto;
