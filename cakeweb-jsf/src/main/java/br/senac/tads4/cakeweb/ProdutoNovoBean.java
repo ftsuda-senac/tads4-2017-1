@@ -5,8 +5,11 @@
  */
 package br.senac.tads4.cakeweb;
 
+import br.senac.tads4.cakeweb.common.entidade.Categoria;
 import br.senac.tads4.cakeweb.common.entidade.Produto;
+import br.senac.tads4.cakeweb.common.service.CategoriaService;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
+import br.senac.tads4.cakeweb.common.service.jpaimpl.CategoriaServiceJPAImpl;
 import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,6 +18,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,13 +37,15 @@ import javax.servlet.http.Part;
 public class ProdutoNovoBean implements Serializable {
 
   private ProdutoService service = new ProdutoServiceJPAImpl();
+  
+  private CategoriaService categoriaService = new CategoriaServiceJPAImpl();
 
   private String nome;
 
   private String descricao;
 
   private BigDecimal preco;
-  
+
   private List<Integer> idsCategorias;
 
   /**
@@ -48,8 +55,17 @@ public class ProdutoNovoBean implements Serializable {
   }
 
   public String salvar() {
-    Produto p = 
-	    new Produto(null, nome, descricao, preco, new Date());
+    Produto p
+	    = new Produto(null, nome, descricao, preco, new Date());
+    List<Categoria> categorias = new ArrayList<Categoria>();
+    if (idsCategorias != null) {
+      for (int i : idsCategorias) {
+	Categoria c  = categoriaService.obter(i);
+	categorias.add(c);
+	c.setProdutos(Arrays.asList(p));
+      }
+      p.setCategorias(categorias);
+    }
     service.incluir(p);
     return "sucesso";
   }

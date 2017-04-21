@@ -18,11 +18,20 @@
 	    </div>
 	    <h2><h:outputText value="#{prod.nome}" /></h2>
 	    <p><h:outputText value="#{prod.descricao}"/></p>
+	    <p>
+	      <ui:repeat value="#{prod.categorias}" var="cat">
+		<span><h:outputText value="#{cat.nome}" /></span>
+	      </ui:repeat>
+	    </p>
 	    <h3>
 	      <h:outputText value="#{prod.preco}">
 		<f:convertNumber type="currency" locale="pt-BR" />
 	      </h:outputText>
 	    </h3>
+	    <h:outputLink value="detalhe.xhtml" styleClass="btn btn-block">
+	      <f:param name="id" value="#{prod.id}" />
+	      Ver detalhes
+	    </h:outputLink>
 	    <h:form prependId="false">
 	      <h:commandButton action="#{carrinhoBean.adicionar(prod.id)}" 
 			       value="Adicionar ao carrinho"

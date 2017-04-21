@@ -7,22 +7,21 @@ package br.senac.tads4.cakeweb;
 
 import br.senac.tads4.cakeweb.common.entidade.Produto;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
-import br.senac.tads4.cakeweb.common.service.fakeimpl.ProdutoServiceFakeImpl;
 import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.http.Part;
 
 /**
@@ -40,14 +39,12 @@ public class ProdutoBean {
   private String nivel;
 
   private Integer nota;
-  
+
   private Date dataTeste = new Date();
 
   private Produto produto = new Produto();
 
   private Part imagem;
-
-
 
   /**
    * Creates a new instance of ProdutoBean
@@ -61,7 +58,8 @@ public class ProdutoBean {
   }
 
   public String salvar() {
-    //this.produto = new Produto(nome, descricao, preco);
+    
+    this.produto = new Produto();
 
     if (imagem != null) {
       String partHeader = imagem.getHeader("content-disposition");
@@ -100,6 +98,15 @@ public class ProdutoBean {
   }
 
   public Produto getProduto() {
+    if (produto == null) {
+      FacesContext fc = FacesContext.getCurrentInstance();
+      Map<String, String> mapParam
+	      = fc.getExternalContext().getRequestParameterMap();
+      Long idProd = Long.parseLong(mapParam.get("id"));
+
+      ProdutoService service = new ProdutoServiceJPAImpl();
+      produto = service.obter(idProd);
+    }
     return produto;
   }
 

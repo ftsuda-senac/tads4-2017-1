@@ -46,22 +46,6 @@
 	      </h:selectManyCheckbox>
 	    </div>
 	    <div>
-	      <h:selectOneMenu value="#{produtoBean.nivel}">
-		<f:selectItems value="#{produtoBean.valoresNiveis}" />
-	      </h:selectOneMenu>
-	    </div>
-	    <div>
-	      <h:selectOneRadio value="#{produtoBean.nota}">
-		<f:selectItems value="#{produtoBean.valoresNotas}" />
-	      </h:selectOneRadio>
-	    </div>
-	    <div>
-	       <h:outputLabel for="txtDataTeste" value="Data" />
-	       <h:inputText id="txtDataTeste" value="#{produtoBean.dataTeste}">
-		 <f:convertDateTime pattern="dd/MM/yyyy" />
-	       </h:inputText>
-	    </div>
-	    <div>
 	      <h:commandButton value="Enviar" action="#{produtoBean.salvar()}" />
 	    </div>
 	  </h:form>

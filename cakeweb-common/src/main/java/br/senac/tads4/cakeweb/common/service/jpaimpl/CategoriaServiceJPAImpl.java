@@ -35,7 +35,14 @@ public class CategoriaServiceJPAImpl implements CategoriaService {
 
   @Override
   public Categoria obter(int id) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    EntityManager em = emFactory.createEntityManager();
+    try {
+      Query query = em.createNamedQuery("Categoria.findById")
+	      .setParameter("idCat", id);
+      return (Categoria) query.getSingleResult();
+    } finally {
+      em.close();
+    }
   }
   
 }

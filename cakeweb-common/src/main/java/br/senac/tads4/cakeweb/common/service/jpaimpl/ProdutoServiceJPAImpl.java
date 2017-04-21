@@ -41,7 +41,19 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
 
   @Override
   public List<Produto> listarPorCategoria(Categoria categoria, int offset, int quantidade) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    EntityManager em = emFactory.createEntityManager();
+    try {
+      Query query = em.createQuery(
+	      "SELECT DISTINCT p "
+	      + "FROM Produto p "
+	      + "LEFT JOIN FETCH p.categorias "
+	      + "LEFT JOIN FETCH p.imagens "
+	      + "INNER JOIN p.categorias c "
+	      + "WHERE c.id = :idCat");
+      return query.getResultList();
+    } finally {
+      em.close();
+    }
   }
 
   @Override
@@ -67,6 +79,13 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
     EntityTransaction transacao = em.getTransaction();
     try {
       transacao.begin();
+      for (Categoria c : p.getCategorias()) {
+	if (c.getId() != null) {
+	  em.merge(c);
+	} else {
+	  em.persist(c);
+	}
+      }
       em.persist(p);
       transacao.commit();
     } catch (Exception e) {
@@ -82,6 +101,13 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
     EntityTransaction transacao = em.getTransaction();
     try {
       transacao.begin();
+      for (Categoria c : p.getCategorias()) {
+	if (c.getId() != null) {
+	  em.merge(c);
+	} else {
+	  em.persist(c);
+	}
+      }
       p = em.merge(p);
       transacao.commit();
     } catch (Exception e) {
@@ -93,7 +119,18 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
 
   @Override
   public void remover(long idProduto) {
-    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    EntityManager em = emFactory.createEntityManager();
+    EntityTransaction transacao = em.getTransaction();
+    try {
+      transacao.begin();
+      Produto p = em.find(Produto.class, idProduto);
+      em.remove(p);
+      transacao.commit();
+    } catch (Exception e) {
+      transacao.rollback();
+    } finally {
+      em.close();
+    }
   }
 
 }
