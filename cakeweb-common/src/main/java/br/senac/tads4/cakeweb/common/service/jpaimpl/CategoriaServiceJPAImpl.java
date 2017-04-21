@@ -26,7 +26,7 @@ public class CategoriaServiceJPAImpl implements CategoriaService {
   public List<Categoria> listar() {
     EntityManager em = emFactory.createEntityManager();
     try {
-      Query query = em.createQuery("SELECT c from Categoria c");
+      Query query = em.createNamedQuery("Categoria.findAll");
       return query.getResultList();
     } finally {
       em.close();

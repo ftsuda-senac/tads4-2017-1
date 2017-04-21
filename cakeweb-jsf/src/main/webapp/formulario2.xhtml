@@ -32,7 +32,14 @@
 	      <h:outputLabel for="txtPreco" value="Preço" />
 	      <h:inputText id="txtPreco" value="#{produtoNovoBean.preco}" />
 	    </div>
-
+	    <div>
+	      <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" label="Categoria" id="chkCategorias"
+				    converter="javax.faces.Integer">
+		<f:selectItems value="#{categoriaBean.categorias}" var="cat"
+			       itemValue="#{cat.id}"
+			       itemLabel="#{cat.nome}" />
+	      </h:selectManyCheckbox>
+	    </div>
 	    <div>
 	      <h:commandButton value="Enviar" action="#{produtoNovoBean.salvar()}" />
 	    </div>

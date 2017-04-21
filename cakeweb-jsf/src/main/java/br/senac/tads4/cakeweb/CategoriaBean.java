@@ -5,14 +5,12 @@
  */
 package br.senac.tads4.cakeweb;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import br.senac.tads4.cakeweb.common.entidade.Categoria;
+import br.senac.tads4.cakeweb.common.service.CategoriaService;
+import br.senac.tads4.cakeweb.common.service.jpaimpl.CategoriaServiceJPAImpl;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 
 /**
  *
@@ -22,20 +20,17 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class CategoriaBean {
   
-  private Map<String, String> categorias = new ConcurrentHashMap<>();
-
+  CategoriaService service = new CategoriaServiceJPAImpl();
+  
   /**
    * Creates a new instance of CategoriaBean
    */
   public CategoriaBean() {
-    categorias.put("1", "Bolo");
-    categorias.put("2", "Torta");
-    categorias.put("3", "Doces");
-    categorias.put("4", "Bebidas");
+
   }
   
-  public List<String> getCategorias() {
-    return new ArrayList<String>(categorias.values());
+  public List<Categoria> getCategorias() {
+    return service.listar();
   }
   
   

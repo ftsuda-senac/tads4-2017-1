@@ -33,6 +33,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -41,6 +43,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TB_CATEGORIA")
+@NamedQueries({
+  @NamedQuery(name = "Categoria.findAll", 
+	  query = "SELECT c from Categoria c"),
+  @NamedQuery(name = "Categoria.findById", 
+	  query = "SELECT c from Categoria c WHERE c.id = :idCat")
+})
 public class Categoria implements Serializable {
 
   @Id

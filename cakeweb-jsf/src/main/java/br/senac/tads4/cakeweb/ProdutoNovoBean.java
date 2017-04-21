@@ -16,6 +16,7 @@ import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Named;
@@ -37,6 +38,8 @@ public class ProdutoNovoBean implements Serializable {
   private String descricao;
 
   private BigDecimal preco;
+  
+  private List<Integer> idsCategorias;
 
   /**
    * Creates a new instance of ProdutoNovoBean
@@ -45,7 +48,8 @@ public class ProdutoNovoBean implements Serializable {
   }
 
   public String salvar() {
-    Produto p = new Produto(null, nome, descricao, preco, new Date());
+    Produto p = 
+	    new Produto(null, nome, descricao, preco, new Date());
     service.incluir(p);
     return "sucesso";
   }
@@ -113,6 +117,14 @@ public class ProdutoNovoBean implements Serializable {
 
   public void setPreco(BigDecimal preco) {
     this.preco = preco;
+  }
+
+  public List<Integer> getIdsCategorias() {
+    return idsCategorias;
+  }
+
+  public void setIdsCategorias(List<Integer> idsCategorias) {
+    this.idsCategorias = idsCategorias;
   }
 
 }
