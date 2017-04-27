@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+  <h:head>
+    <title>Facelet Title</title>
+  </h:head>
+  <h:body>
+    <ui:fragment rendered="#{usuarioBean.usuario != null}">
+      <div>
+	<h2>Nome completo do usuário: 
+	  <h:outputText value="#{usuarioBean.usuario.nomeCompleto}" />
+	</h2>
+	<p>Hash da senha gerada: 
+	  <h:outputText value="#{usuarioBean.usuario.hashSenha}" />
+	</p>
+      </div>
+    </ui:fragment>
+    <ui:fragment rendered="#{usuarioBean.usuario == null}">
+      <div><h2>Sem usuário logado</h2></div>
+    </ui:fragment>
+  </h:body>
+</html>
+
