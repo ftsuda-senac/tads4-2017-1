@@ -37,6 +37,13 @@
 			       value="Adicionar ao carrinho"
 			       styleClass="btn btn-success btn-block" />
 	    </h:form>
+	    <h:form prependId="false">
+	      <h:commandButton action="formulario2.xhtml" 
+			       value="Alterar dados"
+			       styleClass="btn btn-success btn-block">
+		<f:param name="id" value="#{prod.id}" />
+	      </h:commandButton>
+	    </h:form>
 	  </div>
 	</ui:repeat>
 

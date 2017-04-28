@@ -11,22 +11,16 @@ import br.senac.tads4.cakeweb.common.service.CategoriaService;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
 import br.senac.tads4.cakeweb.common.service.jpaimpl.CategoriaServiceJPAImpl;
 import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.inject.Named;
+import java.util.Map;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
-import javax.servlet.http.Part;
+import javax.inject.Named;
 
 /**
  *
@@ -39,6 +33,8 @@ public class ProdutoNovoBean implements Serializable {
   private ProdutoService service = new ProdutoServiceJPAImpl();
   
   private CategoriaService categoriaService = new CategoriaServiceJPAImpl();
+  
+  private Produto produto = null;
 
   private String nome;
 
@@ -55,18 +51,20 @@ public class ProdutoNovoBean implements Serializable {
   }
 
   public String salvar() {
-    Produto p
-	    = new Produto(null, nome, descricao, preco, new Date());
     List<Categoria> categorias = new ArrayList<Categoria>();
     if (idsCategorias != null) {
       for (int i : idsCategorias) {
 	Categoria c  = categoriaService.obter(i);
 	categorias.add(c);
-	c.setProdutos(Arrays.asList(p));
+	c.setProdutos(Arrays.asList(produto));
       }
-      p.setCategorias(categorias);
+      produto.setCategorias(categorias);
     }
-    service.incluir(p);
+    if (produto.getId() == null) {
+      service.incluir(produto);
+    } else {
+      service.alterar(produto);
+    }
     return "sucesso";
   }
 
@@ -109,6 +107,25 @@ public class ProdutoNovoBean implements Serializable {
     }
      */
     return nomeArquivo;
+  }
+
+  public Produto getProduto() {
+    if (produto == null) {
+      FacesContext fc = FacesContext.getCurrentInstance();
+      Map<String, String> params = fc.getExternalContext()
+	      .getRequestParameterMap();
+      String id = params.get("id");
+      if (id != null) {
+	produto = service.obter(Long.parseLong(id));
+      } else {
+	produto = new Produto();
+      }
+    }
+    return produto;
+  }
+
+  public void setProduto(Produto produto) {
+    this.produto = produto;
   }
 
   public String getNome() {

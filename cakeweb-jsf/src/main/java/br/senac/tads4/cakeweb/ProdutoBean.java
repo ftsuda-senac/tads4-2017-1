@@ -45,6 +45,8 @@ public class ProdutoBean {
   private Produto produto = new Produto();
 
   private Part imagem;
+  
+  private String cpf;
 
   /**
    * Creates a new instance of ProdutoBean
@@ -109,7 +111,7 @@ public class ProdutoBean {
     }
     return produto;
   }
-
+  
   /**
    * Metodo que retorna os valores possíveis das categorias
    *

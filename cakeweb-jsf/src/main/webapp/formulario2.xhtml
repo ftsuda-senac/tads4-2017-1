@@ -20,17 +20,19 @@
       <div class="row">
 	<div class="col-xs-12">
 	  <h:form prependId="false">
+
+	    <h:inputHidden value="#{produtoNovoBean.produto.id}" />
 	    <div>
 	      <h:outputLabel for="txtNome" value="Nome" />
-	      <h:inputText id="txtNome" value="#{produtoNovoBean.nome}" pt:placeholder="Preencha o nome" />
+	      <h:inputText id="txtNome" value="#{produtoNovoBean.produto.nome}" pt:placeholder="Preencha o nome" />
 	    </div>
 	    <div>
 	      <h:outputLabel for="txtDescricao" value="Descrição" />
-	      <h:inputTextarea id="txtDescricao" value="#{produtoNovoBean.descricao}" />
+	      <h:inputTextarea id="txtDescricao" value="#{produtoNovoBean.produto.descricao}" />
 	    </div>
 	    <div>
 	      <h:outputLabel for="txtPreco" value="Preço" />
-	      <h:inputText id="txtPreco" value="#{produtoNovoBean.preco}" />
+	      <h:inputText id="txtPreco" value="#{produtoNovoBean.produto.preco}" />
 	    </div>
 	    <div>
 	      <h:selectManyCheckbox value="#{produtoNovoBean.idsCategorias}" 
