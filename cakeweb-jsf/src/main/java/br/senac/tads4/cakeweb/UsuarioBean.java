@@ -9,6 +9,8 @@ import br.senac.tads4.cakeweb.entidade.UsuarioSistema;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -40,6 +42,14 @@ public class UsuarioBean implements Serializable {
     return "/erro-login.xhtml?faces-redirect=true";
   }
   
+  public String sair() {
+    HttpServletRequest req = (HttpServletRequest) 
+	    FacesContext.getCurrentInstance()
+	    .getExternalContext().getRequest();
+    req.getSession().invalidate();
+    return "/index.xhtml?faces-redirect=true";
+  }
+
   public UsuarioSistema getUsuario() {
     return usuario;
   }

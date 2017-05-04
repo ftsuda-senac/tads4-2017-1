@@ -9,6 +9,9 @@
   <h:body>
     <ui:composition>
       <h1 class="text-center">Cake Web (<h:outputText value="#{carrinhoBean.quantidade}" />)</h1>
+      <ui:fragment rendered="#{not empty usuarioBean.usuario}">
+	<h3><h:outputText value="#{usuarioBean.usuario.nomeCompleto}" /></h3>
+      </ui:fragment>
     </ui:composition>
   </h:body>
 </html>

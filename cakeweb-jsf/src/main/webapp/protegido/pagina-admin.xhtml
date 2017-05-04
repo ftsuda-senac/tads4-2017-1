@@ -15,6 +15,10 @@
 	<p>Hash da senha gerada: 
 	  <h:outputText value="#{usuarioBean.usuario.hashSenha}" />
 	</p>
+	<h:form prependId="false">
+	  <h:commandButton action="#{usuarioBean.sair()}" 
+			   value="Sair" />
+	</h:form>
       </div>
     </ui:fragment>
     <ui:fragment rendered="#{usuarioBean.usuario == null}">
