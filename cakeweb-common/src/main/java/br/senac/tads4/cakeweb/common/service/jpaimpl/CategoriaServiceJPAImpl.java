@@ -8,6 +8,7 @@ package br.senac.tads4.cakeweb.common.service.jpaimpl;
 import br.senac.tads4.cakeweb.common.entidade.Categoria;
 import br.senac.tads4.cakeweb.common.service.CategoriaService;
 import java.util.List;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,6 +18,7 @@ import javax.persistence.Query;
  *
  * @author fernando.tsuda
  */
+@Default
 public class CategoriaServiceJPAImpl implements CategoriaService {
 
     private EntityManagerFactory emFactory

@@ -29,11 +29,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import javax.enterprise.inject.Alternative;
 
 /**
  *
  * @author Fernando
  */
+@Alternative
 public class CategoriaServiceFakeImpl implements CategoriaService {
 
   private static final Map<Integer, Categoria> MAP_CATEGORIA = new LinkedHashMap<Integer, Categoria>();

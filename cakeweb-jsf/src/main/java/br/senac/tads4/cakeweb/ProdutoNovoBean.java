@@ -9,17 +9,15 @@ import br.senac.tads4.cakeweb.common.entidade.Categoria;
 import br.senac.tads4.cakeweb.common.entidade.Produto;
 import br.senac.tads4.cakeweb.common.service.CategoriaService;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
-import br.senac.tads4.cakeweb.common.service.jpaimpl.CategoriaServiceJPAImpl;
-import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -30,9 +28,11 @@ import javax.inject.Named;
 @ViewScoped
 public class ProdutoNovoBean implements Serializable {
 
-  private ProdutoService service = new ProdutoServiceJPAImpl();
+  @Inject
+  private ProdutoService service;
   
-  private CategoriaService categoriaService = new CategoriaServiceJPAImpl();
+  @Inject
+  private CategoriaService categoriaService;
   
   private Produto produto = null;
 

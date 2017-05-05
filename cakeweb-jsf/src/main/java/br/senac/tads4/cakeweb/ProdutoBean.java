@@ -7,7 +7,6 @@ package br.senac.tads4.cakeweb;
 
 import br.senac.tads4.cakeweb.common.entidade.Produto;
 import br.senac.tads4.cakeweb.common.service.ProdutoService;
-import br.senac.tads4.cakeweb.common.service.jpaimpl.ProdutoServiceJPAImpl;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.Part;
 
@@ -47,6 +47,9 @@ public class ProdutoBean {
   private Part imagem;
   
   private String cpf;
+  
+  @Inject
+  private ProdutoService service;
 
   /**
    * Creates a new instance of ProdutoBean
@@ -55,7 +58,6 @@ public class ProdutoBean {
   }
 
   public List<Produto> getProdutos() {
-    ProdutoService service = new ProdutoServiceJPAImpl();
     return service.listar(0, 100);
   }
 
@@ -105,8 +107,6 @@ public class ProdutoBean {
       Map<String, String> mapParam
 	      = fc.getExternalContext().getRequestParameterMap();
       Long idProd = Long.parseLong(mapParam.get("id"));
-
-      ProdutoService service = new ProdutoServiceJPAImpl();
       produto = service.obter(idProd);
     }
     return produto;

@@ -7,9 +7,9 @@ package br.senac.tads4.cakeweb;
 
 import br.senac.tads4.cakeweb.common.entidade.Categoria;
 import br.senac.tads4.cakeweb.common.service.CategoriaService;
-import br.senac.tads4.cakeweb.common.service.jpaimpl.CategoriaServiceJPAImpl;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -20,7 +20,8 @@ import javax.inject.Named;
 @ApplicationScoped
 public class CategoriaBean {
   
-  CategoriaService service = new CategoriaServiceJPAImpl();
+  @Inject
+  private CategoriaService service;
   
   /**
    * Creates a new instance of CategoriaBean
