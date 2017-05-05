@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
   <h:head>
     <title>Facelet Title</title>
   </h:head>
@@ -12,6 +13,13 @@
       <ui:fragment rendered="#{not empty usuarioBean.usuario}">
 	<h3><h:outputText value="#{usuarioBean.usuario.nomeCompleto}" /></h3>
       </ui:fragment>
+      <h:form prependId="false">
+	<h:selectOneMenu value="#{usuarioBean.localeCode}" onchange="submit()"
+			 valueChangeListener="#{usuarioBean.mudarIdioma}">
+	  <f:selectItems value="#{usuarioBean.countriesInMap}" />
+	</h:selectOneMenu>
+
+      </h:form>
     </ui:composition>
   </h:body>
 </html>
