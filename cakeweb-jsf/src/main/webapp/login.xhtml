@@ -16,25 +16,25 @@
 
 	      <h:form prependId="false">
 		<div class="form-group">
-		  <h:outputLabel value="Usuário" for="txtUsuario" />
+		  <h:outputLabel value="#{msgs['usuario.label']}" for="txtUsuario" />
 		  <h:inputText value="#{usuarioBean.nomeUsuario}"
 			       id="txtUsuario"
 			       required="true"
 			       requiredMessage="Preencha o nome"
 			       pt:required="required"
-			       pt:placeholder="Nome de usuário" />
+			       pt:placeholder="#{msgs['usuario.placeholder']}" />
 		</div>
 		<div class="form-group">
-		  <h:outputLabel value="Senha" for="txtSenha" />
+		  <h:outputLabel value="#{msgs['senha.label']}" for="txtSenha" />
 		  <h:inputSecret value="#{usuarioBean.senha}"
 				 id="txtSenha"
 				 required="true"
 				 requiredMessage="Preencha a senha"
 				 pt:required="required"
-				 pt:placeholder="Senha" />
+				 pt:placeholder="#{msgs['senha.placeholder']}" />
 		</div>
 		<div>
-		  <h:commandButton value="Entrar"
+		  <h:commandButton value="#{msgs['entrar']}"
 				   action="#{usuarioBean.autenticar()}" />
 		</div>
 

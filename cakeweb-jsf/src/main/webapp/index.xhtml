@@ -30,16 +30,16 @@
 	    </h3>
 	    <h:outputLink value="detalhe.xhtml" styleClass="btn btn-block">
 	      <f:param name="id" value="#{prod.id}" />
-	      Ver detalhes
+	      <h:outputText value="#{msgs.detalhe}" />
 	    </h:outputLink>
 	    <h:form prependId="false">
 	      <h:commandButton action="#{carrinhoBean.adicionar(prod.id)}" 
-			       value="Adicionar ao carrinho"
+			       value="#{msgs.adicionarcarrinho}"
 			       styleClass="btn btn-success btn-block" />
 	    </h:form>
 	    <h:form prependId="false">
 	      <h:commandButton action="formulario2.xhtml" 
-			       value="Alterar dados"
+			       value="#{msgs.alterardados}"
 			       styleClass="btn btn-success btn-block">
 		<f:param name="id" value="#{prod.id}" />
 	      </h:commandButton>
