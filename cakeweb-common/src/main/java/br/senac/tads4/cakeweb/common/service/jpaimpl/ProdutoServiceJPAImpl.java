@@ -34,7 +34,9 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
 	      "SELECT DISTINCT p "
 	      + "FROM Produto p "
 	      + "LEFT JOIN FETCH p.categorias "
-	      + "LEFT JOIN FETCH p.imagens");
+	      + "LEFT JOIN FETCH p.imagens")
+	      .setFirstResult(offset)
+	      .setMaxResults(quantidade);
       return query.getResultList();
     } finally {
       em.close();
@@ -51,7 +53,9 @@ public class ProdutoServiceJPAImpl implements ProdutoService {
 	      + "LEFT JOIN FETCH p.categorias "
 	      + "LEFT JOIN FETCH p.imagens "
 	      + "INNER JOIN p.categorias c "
-	      + "WHERE c.id = :idCat");
+	      + "WHERE c.id = :idCat")
+	      .setFirstResult(offset)
+	      .setMaxResults(quantidade);
       return query.getResultList();
     } finally {
       em.close();

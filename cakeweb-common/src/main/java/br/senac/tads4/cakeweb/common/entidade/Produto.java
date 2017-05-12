@@ -43,6 +43,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -50,6 +54,8 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "TB_PRODUTO")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Produto implements Serializable {
 
   @Id
@@ -69,6 +75,7 @@ public class Produto implements Serializable {
 
   @Column(name = "DT_CADASTRO", nullable = false)
   @Temporal(TemporalType.TIMESTAMP)
+  @XmlTransient
   private Date dtCadastro;
 
   @ManyToMany(fetch = FetchType.LAZY)
@@ -79,13 +86,16 @@ public class Produto implements Serializable {
 	  inverseJoinColumns = {
 	    @JoinColumn(name = "ID_CATEGORIA")
 	  })
+  @XmlTransient
   private List<Categoria> categorias;
 
   @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY,
 	  cascade = {CascadeType.REMOVE})
+  @XmlTransient
   private List<ImagemProduto> imagens;
 
   @Transient
+  @XmlTransient
   private String observacoes;
 
   //private List<ItemCompra> itensCompra;
